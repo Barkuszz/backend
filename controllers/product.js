@@ -1,7 +1,7 @@
 import{
     getCliente,
     getProductById,
-    insertProduct,
+    insertCliente,
     updateProductById,
     deleteProductById,
 } from "../models/productModel.js";
@@ -30,7 +30,7 @@ export const showProductsById=(req,res)=>{
 
 export const createProduct = (req,res)=>{
     const data = req.body;
-    insertProduct(data,(err,results)=>{
+    insertCliente(data,(err,results)=>{
         if(err){
             res.send(err);
         }else{

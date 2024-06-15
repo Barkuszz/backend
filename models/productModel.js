@@ -30,8 +30,24 @@ export const getProductById = (id, result) => {
 };
 
 //insert product to databased
-export const insertProduct = (data, result) => {
-  db.query("INSERT INTO product SET ?", [data], (err, results) => {
+export const insertCliente = (data, result) => {
+  const sql = `
+    INSERT INTO CLIENTE (
+      COD_CLIENTE, NOME_CLIENTE, DCR_ENDERECO, DCR_COMPLEMENTO, NUM_CEP, COD_CIDADE, COD_BAIRRO, COD_LOCALIDADE
+    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+  `;
+  const values = [
+    data.COD_CLIENTE,
+    data.NOME_CLIENTE,
+    data.DCR_ENDERECO,
+    data.DCR_COMPLEMENTO,
+    data.NUM_CEP,
+    data.COD_CIDADE,
+    data.COD_BAIRRO,
+    data.COD_LOCALIDADE
+  ];
+  
+  db.query(sql, values, (err, results) => {
     if (err) {
       console.log(err);
       result(err, null);
@@ -40,6 +56,7 @@ export const insertProduct = (data, result) => {
     }
   });
 };
+
 
 // Update Product to Database
 export const updateProductById = (data, id, result) => {
