@@ -5,10 +5,19 @@ import express from "express";
 
 import {
     showCliente,
-    showProductsById,
+    showClientesById,
+    creatCliente,
     createProduct,
     updateProduct,
     deleteProduct,
+    showCategoria,
+    showEmpreendimento,
+    showBairro,
+    showCidade,
+    showLocalidade,
+    createEmpreendimento,
+    createFuncionario,
+    createEmpreend_funcionario,
   } from "../controllers/product.js";
 
 //init express router
@@ -18,17 +27,36 @@ const router=express.Router();
 
 router.get("/cliente", showCliente);
 
+router.get("/categoria", showCategoria);
+
+router.get("/empreendimento", showEmpreendimento);
+
+router.get("/cidade", showCidade);
+
+router.get("/bairro", showBairro);
+
+router.get("/localidade", showLocalidade);
+
 //get single product
-router.get("/products/:id", showProductsById);
+router.get("/cliente/:id", showClientesById);
 
 // Create New Product
-router.post("/products", createProduct);
+router.post("/creatCliente", creatCliente);
+
+// Inserir produto
+router.post("/produto", createProduct);
+
+router.post("/createEmpreendimento", createEmpreendimento);
+
+router.post("/createFuncionario", createFuncionario);
+
+router.post("/createEfuncionario", createEmpreend_funcionario);
 
 // Update Product
-router.put("/products/:id", updateProduct);
+router.put("/produto/:id", updateProduct);
 
 // Delete Product
-router.delete("/products/:id", deleteProduct);
+router.delete("/produto/:id", deleteProduct);
 
 //export default router
 export default router;

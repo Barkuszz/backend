@@ -15,5 +15,5 @@ app.use(Router);
 //PORT
 
 app.listen(5000,()=>{
-    console.log("Server Running Successfully")
+    console.log("Server Running Successfully!!")
 })
