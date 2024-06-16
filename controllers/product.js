@@ -1,19 +1,9 @@
 import{
-  getCliente,
-  getClienteByID,
-  insertCliente,
-  insertProduto,
-  updateProductById,
-  deleteProductById,
-  getCategoria,
-  getEmpreendimento,
-  getCidade,
-  getBairro,
-  getLocalidade,
-  insertFuncionario,
-  insertEmpreendimento,
-  insertEmprendFuncionario,
-
+    getCliente,
+    getProductById,
+    insertProduct,
+    updateProductById,
+    deleteProductById,
 } from "../models/productModel.js";
 
 export const showCliente=(req,res)=>{
@@ -134,14 +124,14 @@ export const createEmpreend_funcionario = (req,res)=>{
 };
 
 export const createProduct = (req,res)=>{
-  const data = req.body;
-  insertProduto(data,(err,results)=>{
-      if(err){
-          res.send(err);
-      }else{
-          res.json(results)
-      }
-  });
+    const data = req.body;
+    insertProduct(data,(err,results)=>{
+        if(err){
+            res.send(err);
+        }else{
+            res.json(results)
+        }
+    });
 };
 
 export const updateProduct = (req, res) => {
